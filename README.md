@@ -1,7 +1,6 @@
 from pathlib import Path
 
 # 🎓 Sistema Acadêmico - Banco de Dados SQL
-readme_sql = """# 🎓 Sistema Acadêmico - Banco de Dados SQL
 
 Este projeto implementa um **banco de dados relacional** para gerenciamento de uma faculdade, cobrindo desde a estrutura institucional até o controle acadêmico de alunos e turmas.
 
