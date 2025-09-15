@@ -1,7 +1,6 @@
 from pathlib import Path
 
-# Conteúdo do README em Markdown
-"""# 📦 Sistema de Controle de Estoque e Vendas
+# 📦 Sistema de Controle de Estoque e Vendas
 
 Um sistema simples em **Python** para gerenciamento de estoque e vendas em uma loja de eletrônicos.
 
