@@ -1,10 +1,11 @@
 from pathlib import Path
 
-# 📦 Sistema de Controle de Estoque e Vendas
+# 🎓 Sistema Acadêmico - Banco de Dados SQL
+readme_sql = """# 🎓 Sistema Acadêmico - Banco de Dados SQL
 
-Um sistema simples em **Python** para gerenciamento de estoque e vendas em uma loja de eletrônicos.
+Este projeto implementa um **banco de dados relacional** para gerenciamento de uma faculdade, cobrindo desde a estrutura institucional até o controle acadêmico de alunos e turmas.
 
-Projeto desenvolvido como **Estudo de Caso** para a disciplina *Computational Logic Using Python* da **UNIFECAF**.
+Projeto desenvolvido como *Portifólio* da disciplina de Banco de Dados Lógico (UNIFECAF).
 
 ---
 
@@ -14,38 +15,36 @@ Projeto desenvolvido como **Estudo de Caso** para a disciplina *Computational Lo
 
 ---
 
-## 🚀 Funcionalidades
+## 📦 Estrutura do Banco de Dados
 
-- **Produtos**
-- Adicionar novo produto
-- Atualizar produto existente
-- Excluir produto
-- Listar estoque atual
+O script **faculdade_logico_final.sql** cria o banco de dados `faculdade_db_estudante` e suas tabelas principais:
 
-- **Vendas**
-- Registrar venda (com baixa automática no estoque)
-- Listar vendas realizadas
-
----
-
-## 🛠️ Como funciona
-
-- Estruturas de dados utilizadas:
-- `estoque` → lista de dicionários para os produtos.
-- `vendas` → lista de dicionários para as vendas.
-
-- Não possui persistência em banco de dados:
-- Ao encerrar o programa, os dados são perdidos.
+1. **faculdade** → informações gerais da instituição.
+2. **departamento** → departamentos acadêmicos vinculados à faculdade.
+3. **curso** → cursos oferecidos (tecnólogo, bacharelado, licenciatura).
+4. **professor** → dados de professores e vínculo com departamentos.
+5. **aluno** → cadastro de estudantes e vínculo com cursos.
+6. **disciplina** → catálogo de disciplinas de cada curso.
+7. **disciplina_prereq** → pré-requisitos entre disciplinas.
+8. **turma** → oferta de disciplinas em semestres/turnos com professor responsável.
+9. **matricula_turma** → matrícula dos alunos em turmas, incluindo notas e frequência.
 
 ---
 
-## 📋 Menu do Sistema
+## 🔑 Regras e Restrições
 
-```text
-1 - Adicionar Produto
-2 - Atualizar Produto
-3 - Excluir Produto
-4 - Visualizar Estoque
-5 - Registrar Venda
-6 - Visualizar Vendas
-0 - Sair do Sistema
+- **Chaves primárias**: definidas em todas as tabelas.
+- **Chaves estrangeiras**: garantem a integridade referencial entre faculdades, cursos, alunos, professores e disciplinas.
+- **Constraints de unicidade**: como `cpf`, `email`, `sigla`, entre outros.
+- **Auto-relacionamento**: tabela `disciplina_prereq` (pré-requisitos entre disciplinas).
+- **Controle de matrículas**: tabela `matricula_turma` armazena status (matriculado, aprovado, reprovado).
+
+---
+
+## ▶️ Como usar
+
+1. Certifique-se de ter o **MySQL** instalado.
+2. Execute o script SQL no terminal ou em um cliente (como Workbench):
+
+```bash
+mysql -u root -p < faculdade_logico_final.sql
